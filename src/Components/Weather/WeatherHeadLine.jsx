@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import cloudIcon from "../../assets/assets/cloud.svg";
 import pinIcon from "../../assets/assets/pin.svg";
 import { WeatherContext } from "../../Context";
+import { getFormattedDate } from "../../utlis/utilsDate";
 
 const WeatherHeadLine = () => {
   const { WeatherData } = useContext(WeatherContext);
@@ -24,7 +25,10 @@ const WeatherHeadLine = () => {
             </div>
           </div>
         </div>
-        <p className="text-sm lg:text-lg">06:09 - Sunday, 9 Dec ‘23</p>
+        <p className="text-sm lg:text-lg">
+          {getFormattedDate(time, "time", false)} -{" "}
+          {getFormattedDate(time, "date", false)}
+        </p>
       </div>
     </>
   );
