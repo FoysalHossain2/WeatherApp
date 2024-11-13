@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FavoriteContext } from "../../Context";
 
 const FavoriteModal = () => {
+  const { Favorite } = useContext(FavoriteContext);
+
   return (
     <>
       {" "}
       <div class="max-w-xs py-4 bg-white rounded-md border-gray-500 absolute right-0 top-16 text-black shadow-lg ">
         <h3 class="text-lg font-bold px-4">Favourite Locations</h3>
         <ul class="space-y-2 mt-4 *:py-2 *:px-4 *:cursor-pointer">
-          <li class="hover:bg-gray-200">Dhaka</li>
-          <li class="hover:bg-gray-200">Rangpur</li>
-          <li class="hover:bg-gray-200">Europe</li>
+          {Favorite.length > 0 ? (
+            Favorite.map((fav) => (
+              <li key={fav.location} class="hover:bg-gray-200">
+                {fav.location}
+              </li>
+            ))
+          ) : (
+            <p>Favorite Locations is empty</p>
+          )}
         </ul>
       </div>
     </>

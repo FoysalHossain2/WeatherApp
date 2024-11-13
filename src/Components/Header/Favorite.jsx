@@ -1,13 +1,13 @@
 import React from "react";
 import heart from "../../assets/assets/heart.svg";
 
-const Favorite = () => {
+const Favorite = ({ onshow }) => {
   return (
     <>
       {" "}
       <div className="p-2 hover:bg-black/30 cursor-pointer flex gap-2 items-center rounded-md transition-all">
         <img src={heart} alt="" />
-        <span>Favourite Locations</span>
+        <span onClick={onshow}>Favourite Locations</span>
       </div>
     </>
   );

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Favorite from "./Favorite";
 import FavoriteModal from "./FavoriteModal";
 import Logo from "./Logo";
 import From from "./Search";
 
 const Header = () => {
+  const [ShowFavModal, setShowFavModal] = useState(false);
+
   return (
     <>
       <header class="fixed w-full top-0 z-50 bg-gradient-to-b from-black/60 to-black/0 pb-10">
@@ -15,10 +17,10 @@ const Header = () => {
 
           <div class="flex items-center gap-4 relative">
             <From />
-            <Favorite />
+            <Favorite onshow={() => setShowFavModal(!ShowFavModal)} />
 
             {/* <!-- Modal --> */}
-            <FavoriteModal />
+            {ShowFavModal && <FavoriteModal />}
           </div>
         </nav>
       </header>
