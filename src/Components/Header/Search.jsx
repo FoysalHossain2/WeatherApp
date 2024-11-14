@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
+import search from "../../assets/assets/search.svg";
 import { LocationContext } from "../../Context";
+import { getLocationByName } from "../../data/location_data";
 
 const From = () => {
   const [SearchTerm, setSearchTerm] = useState("");
@@ -8,6 +10,8 @@ const From = () => {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
+    const fetchedLocation = getLocationByName(SearchTerm);
+    setSelectedLocation({ ...fetchedLocation });
   };
 
   return (
@@ -23,7 +27,7 @@ const From = () => {
             required
           />
           <button type="submit">
-            <img src="./assets/search.svg" />
+            <img src={search} alt="Search" />
           </button>
         </div>
       </form>

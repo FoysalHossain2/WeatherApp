@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { LocationContext } from "../Context";
 
 const LocationProvider = ({ children }) => {

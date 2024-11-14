@@ -48,3 +48,5 @@ function getLocationByName(location) {
     }
 }
 
+export { getLocationByName, getLocations };
+
