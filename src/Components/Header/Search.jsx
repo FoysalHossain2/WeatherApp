@@ -2,28 +2,34 @@ import React, { useContext, useState } from "react";
 import search from "../../assets/assets/search.svg";
 import { LocationContext } from "../../Context";
 import { getLocationByName } from "../../data/location_data";
+import useDebounce from "../../hooks/useDebounce";
 
 const From = () => {
   const [SearchTerm, setSearchTerm] = useState("");
 
   const { setSelectedLocation } = useContext(LocationContext);
 
-  const HandleSubmit = (e) => {
-    e.preventDefault();
-    const fetchedLocation = getLocationByName(SearchTerm);
+  const doSearch = useDebounce((tram) => {
+    const fetchedLocation = getLocationByName(tram);
     setSelectedLocation({ ...fetchedLocation });
-  };
+  }, 500);
+
+  function HandleChange(e) {
+    const value = e.target.value;
+    setSearchTerm(value);
+    doSearch(value);
+  }
 
   return (
     <>
       {" "}
-      <form action="#" onSubmit={HandleSubmit}>
+      <form action="#">
         <div class="flex items-center space-x-2 py-2 px-3 group focus-within:bg-black/30 transition-all border-b border-white/50 focus-within:border-b-0 focus-within:rounded-md">
           <input
             class="bg-transparent  placeholder:text-white text-white w-full text-xs md:text-base outline-none border-none"
             type="search"
             placeholder="Search Location"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={HandleChange}
             required
           />
           <button type="submit">
