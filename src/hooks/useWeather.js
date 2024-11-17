@@ -21,7 +21,7 @@ const useWeather = () => {
         message: ""
     });
 
-    const [Error, setError] = useState(null);
+    const [Error, setError] = useState(null);  
 
     const {SelectedLocation} = useContext(LocationContext);
     console.log(SelectedLocation);
