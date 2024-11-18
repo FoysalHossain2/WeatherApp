@@ -58,7 +58,8 @@ const useWeather = () => {
                 longitude: longitude,
                 latitude: latitude,
             }
-            setWeatherData(updateWeatherData)
+               setWeatherData(updateWeatherData)
+
         } catch (err) {
             setError(err)
             

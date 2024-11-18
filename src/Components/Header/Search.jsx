@@ -12,7 +12,7 @@ const From = () => {
   const doSearch = useDebounce((tram) => {
     const fetchedLocation = getLocationByName(tram);
     setSelectedLocation({ ...fetchedLocation });
-  }, 500);
+  }, 1000);
 
   function HandleChange(e) {
     const value = e.target.value;
