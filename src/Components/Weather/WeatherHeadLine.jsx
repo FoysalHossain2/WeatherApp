@@ -30,8 +30,6 @@ const WeatherHeadLine = () => {
         return HazeIcon;
       case "Haze":
         return HazeIcon;
-      case "Mist":
-        return HazeIcon;
 
       default:
         return SunnyIcon;
