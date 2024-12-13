@@ -28,8 +28,6 @@ const WeatherHeadLine = () => {
         return ThunderIcon;
       case "Fog":
         return HazeIcon;
-      case "Haze":
-        return HazeIcon;
 
       default:
         return SunnyIcon;
